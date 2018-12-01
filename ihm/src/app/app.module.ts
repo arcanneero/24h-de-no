@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { BoardComponent } from './pages/board/board.component';
+
+
+
 import { TplHeaderComponent } from './component/tpl-header/tpl-header.component';
 import { TplFooterComponent } from './component/tpl-footer/tpl-footer.component';
 import { ToasterModule } from 'angular2-toaster';
@@ -10,8 +15,11 @@ import { ToasterModule } from 'angular2-toaster';
 @NgModule({
   declarations: [
     AppComponent,
+    AdminComponent,
+    BoardComponent,
     TplHeaderComponent,
-    TplFooterComponent
+    TplFooterComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
