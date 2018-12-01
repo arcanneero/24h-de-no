@@ -1,0 +1,21 @@
+
+<div class="d-flex flex-column">
+
+  <div class="d-flex justify-content-around "
+       role="alert">
+    <h3>Session en cours</h3>
+    <div class="alert alert-warning"
+         role="alert">
+      <button class="btn btn-lg active btn-info" (click)="resetAll()">
+        <span>Reset All</span>
+      </button>
+      <button class="btn btn-lg active btn-danger" (click)="stopAll()">
+        <span>Stop All</span>
+      </button>
+    </div>
+  </div>
+
+  <div *ngFor="let runner of runners" class="runner-item">
+    <app-runner-item [runner]="runner" [mode]="rw"></app-runner-item>
+  </div>
+</div>

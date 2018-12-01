@@ -1,0 +1,24 @@
+<div>
+  <div class="alert d-flex justify-content-around"
+       [ngClass]="{'alert-success':isWaiting(), 'alert-info':isRunning()}"
+       role="alert">
+    <div>
+      <h5 *ngIf="isRunning()">{{runner.pilot}}</h5>
+      <input *ngIf="isWaiting()" [(ngModel)]="runner.pilot" />
+    </div>
+    <div class="d-flex align-items-center">
+      <button *ngIf="isRunning()"
+              class="btn btn-lg active"
+              [ngClass]="btn-info"
+              (click)="reset()">
+        <span>Reset</span>
+      </button>
+      <button class="btn btn-lg active"
+              [ngClass]="{'btn-success':isWaiting(), 'btn-danger':isRunning()}"
+              (click)="execute()">
+        <span *ngIf="isRunning()">Stop</span>
+        <span *ngIf="isWaiting()">Start</span>
+      </button>
+    </div>
+  </div>
+</div>
