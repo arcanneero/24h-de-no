@@ -1,0 +1,22 @@
+:host > div {
+    border-bottom: lightgrey solid 1px;
+}
+
+#logo {
+    width: auto;
+    height: 10em;
+}
+
+#game-title {
+    font-size: 1.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: inherit;
+    margin: .67em 1em;
+    padding: 1em;
+    margin-right: 1rem;
+}
+
+#header {
+
+}
