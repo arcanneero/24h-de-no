@@ -1,0 +1,11 @@
+
+<div class="d-flex flex-column">
+
+  <div class="d-flex justify-content-around" role="alert">
+    <h3>Tous nos coureurs !</h3>
+  </div>
+
+  <div *ngFor="let runner of (players | async)" class="runner-item" id="hall">
+    <app-runner-item [runner]="runner" [mode]="ro"></app-runner-item>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 package net.arcann.telethonno.endpoint.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

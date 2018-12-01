@@ -1,21 +1,24 @@
 package net.arcann.telethonno.endpoint;
 
-import net.arcann.telethonno.endpoint.rest.endpoint.EventsEndpoint;
-import net.arcann.telethonno.endpoint.rest.endpoint.PisteEndpoint;
-import net.arcann.telethonno.endpoint.rest.endpoint.AdminEndpoint;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import javax.ws.rs.Path;
 
 @Configuration
 public class JerseyConfig extends ResourceConfig {
 
+    private final ApplicationContext context;
+
+    public JerseyConfig(ApplicationContext context) {
+        this.context = context;
+    }
+
     @PostConstruct
     private void registerEndpoints() {
-        register(PisteEndpoint.class);
-        register(AdminEndpoint.class);
-        register(EventsEndpoint.class);
+        context.getBeansWithAnnotation(Path.class).forEach((s, o) -> this.register(o.getClass()));
 
         register(CORSFilter.class);
         register(OptionsFilter.class);

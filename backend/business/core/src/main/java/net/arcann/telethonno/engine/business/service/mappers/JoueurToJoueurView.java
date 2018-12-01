@@ -13,9 +13,11 @@ public class JoueurToJoueurView implements Function<Joueur, JoueurView> {
     public JoueurView apply(final Joueur joueur) {
         final JoueurView resultat = new JoueurView();
 
-        resultat.setNbTour(joueur.getNbTour());
-        resultat.setDistance(joueur.getDistance());
-        resultat.setNom(joueur.getNom());
+        if (joueur != null) {
+            resultat.setNbTour(joueur.getNbTour());
+            resultat.setDistance(joueur.getDistance());
+            resultat.setNom(joueur.getNom());
+        }
 
         return resultat;
     }

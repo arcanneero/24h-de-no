@@ -1,0 +1,20 @@
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <img class="d-block w-100" src="/assets/img/circuit.jpg?auto=yes&bg=777&fg=555" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>{{compteur | async}} tours </h3>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img class="d-block w-100" src="/assets/img/banderole.jpg?auto=yes&bg=777&fg=555" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>{{resultat | async}} €</h3>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img class="d-block w-100" src="/assets/img/voiture.jpg?auto=yes&bg=777&fg=555" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>{{distance | async | number:'1.0-0'}} km</h3>
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -21,5 +21,4 @@
 		<module>spi-persist</module>
 		<module>core</module>
 	</modules>
-
 </project>

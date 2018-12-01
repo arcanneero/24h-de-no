@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {RunnerMode, RunnerModel} from '../../model/runner';
+import {RunnerMode, RunModel} from '../../model/run';
 
 @Component({
   selector: 'app-runner-item',
@@ -8,12 +8,16 @@ import {RunnerMode, RunnerModel} from '../../model/runner';
 })
 export class RunnerItemComponent implements OnInit {
 
-  @Input() runner: RunnerModel;
+  @Input() runner: RunModel;
   @Input() mode: RunnerMode;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  isRead(): boolean {
+    return this.mode === 'ro';
   }
 
 

@@ -1,1 +1,1 @@
-{"cagnotte":0,"nbTour":3,"distance":0.0,"pistes":[],"joueurs":[]}
+{"cagnotte":10,"nbTour":12,"distance":123.29999,"pistes":[{"numero":"UN","nbTour":9,"distance":123.29999,"joueur":null},{"numero":"DEUX","nbTour":0,"distance":0.0,"joueur":null},{"numero":"TROIS","nbTour":0,"distance":0.0,"joueur":null},{"numero":"QUATRE","nbTour":0,"distance":0.0,"joueur":null}],"joueurs":[]}

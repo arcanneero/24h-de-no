@@ -11,6 +11,15 @@ import { ToasterModule } from 'angular2-toaster';
 import {AdminRaceComponent} from './component/admin-race/admin-race.component';
 import {AdminResultsComponent} from './component/admin-results/admin-results.component';
 import { RunnerItemComponent } from './component/runner-item/runner-item.component';
+import {BoardRaceComponent} from './component/board-race/board-race.component';
+import {BoardResultsComponent} from './component/board-results/board-results.component';
+import {BoardHallComponent} from './component/board-hall/board-hall.component';
+import {NgbModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
+import {CommonsService} from "./service/commons.service";
+import {HallService} from "./service/hall.service";
+import {ResultsService} from "./service/results.service";
+import {RunService} from "./service/run.service";
 
 @NgModule({
   declarations: [
@@ -22,15 +31,25 @@ import { RunnerItemComponent } from './component/runner-item/runner-item.compone
     BoardComponent,
     AdminRaceComponent,
     AdminResultsComponent,
-    RunnerItemComponent
+    RunnerItemComponent,
+    BoardRaceComponent,
+    BoardResultsComponent,
+    BoardHallComponent
   ],
   imports: [
     BrowserModule,
     ToasterModule.forRoot(),
+    HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    NgbCarouselModule
   ],
-  providers: [],
+  providers: [CommonsService,
+    HallService,
+    ResultsService,
+    RunService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
