@@ -1,0 +1,9 @@
+{
+  "build": {
+    "type": "maven",
+    "goal": "-f backend/pom.xml package"
+  },
+  "deploy": {
+    "jarName": "backend/application/target/engine-application.jar"
+  }
+}
