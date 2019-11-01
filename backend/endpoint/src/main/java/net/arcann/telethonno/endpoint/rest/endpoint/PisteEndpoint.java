@@ -1,5 +1,6 @@
 package net.arcann.telethonno.endpoint.rest.endpoint;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.arcann.telethonno.endpoint.model.JoueurModel;
 import net.arcann.telethonno.engine.business.api.AdminApi;
@@ -8,12 +9,15 @@ import net.arcann.telethonno.engine.business.api.view.PisteView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import java.util.List;
 
 
 @Slf4j
@@ -33,8 +37,6 @@ public class PisteEndpoint {
         this.adminApi = adminApi;
     }
 
-
-    @Path("")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON_UTF8_VALUE)
     public void reset() {
@@ -45,7 +47,7 @@ public class PisteEndpoint {
     @Path("/{ligne}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void reset(@PathVariable("ligne") Integer ligne) {
+    public void reset(@PathParam("ligne") Integer ligne) {
 
         PisteView piste = new PisteView();
         piste.setNumero(ligne);
@@ -57,24 +59,33 @@ public class PisteEndpoint {
     @Path("/{ligne}/joueur")
     @POST
     @Produces(MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void nouveauJoueur(@PathVariable("ligne") Integer ligne, String nom) {
+    @Consumes(MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void nouveauJoueur(@PathParam("ligne") Integer ligne, JoueurModel joueurModel) {
+
 
         PisteView piste = new PisteView();
         piste.setNumero(ligne);
 
-        adminApi.renseignerUnJoueur(piste, nom);
-
+        adminApi.renseignerUnJoueur(piste, "");
     }
 
     @Path("/{ligne}")
     @POST
     @Produces(MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void nouveauTour(@PathVariable("ligne") Integer ligne) {
+    public void nouveauTour(@PathParam("ligne") Integer ligne) {
 
         PisteView piste = new PisteView();
         piste.setNumero(ligne);
 
         courseApi.nouveauTour(piste);
+
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<PisteView> getState() {
+
+        return courseApi.get();
 
     }
 

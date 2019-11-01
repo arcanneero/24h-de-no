@@ -46,6 +46,14 @@ class CourseService implements CourseApi {
         return piste;
     }
 
+    @Override
+    public List<PisteView> get() {
+
+        Game game = gamePort.get();
+
+        return gameToPistesView.apply(game);
+    }
+
     private void publishResultats(ResultatView view) {
         publisher.publishEvent(new ResultatEvents(view));
     }

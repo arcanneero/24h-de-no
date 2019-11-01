@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminResultsComponent implements OnInit {
 
-  affiche: number;
+  compteur: number;
   reel: number;
   retention: number;
 
@@ -17,7 +17,7 @@ export class AdminResultsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.affiche = 100;
+    this.compteur = 100;
     this.reel = 110;
     this.retention = 10;
     this.resultat = 8000;

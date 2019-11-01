@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RunnerModel} from '../../model/runner';
+import {RunModel} from '../../model/run';
 
 @Component({
   selector: 'app-admin-race',
@@ -8,15 +8,15 @@ import {RunnerModel} from '../../model/runner';
 })
 export class AdminRaceComponent implements OnInit {
 
-  runners: RunnerModel[];
+  runners: RunModel[];
 
   constructor() { }
 
   ngOnInit() {
-    this.runners = [ new RunnerModel("dej", 1),
-      new RunnerModel("nuyt", 2),
-      new RunnerModel("sqx", 3),
-      new RunnerModel("fezfzr", 4)]
+    this.runners = [ new RunModel(1),
+      new RunModel(2),
+      new RunModel(3),
+      new RunModel(4)]
   }
 
   resetAll () {
